@@ -1,0 +1,33 @@
+{
+    "countryName":"España",
+    "countryCode":"34",
+    "defNumber":{
+        "template":"NXX-XX-XX-XX",
+        "symbols":{
+            "N":{
+                "isDigit":true,
+                "min":6,
+                "max":7
+            },
+            "X":{
+                "isDigit":true,
+                "min":0,
+                "max":9
+            }
+        }
+    },
+    "documentID":{
+        "template":"DDDDDDDDC",
+        "symbols":{
+            "D":{
+                "isDigit":true,
+                "min":0,
+                "max":9
+            },
+            "C":{
+                "isDigit":false
+
+            }
+        }
+    }
+}

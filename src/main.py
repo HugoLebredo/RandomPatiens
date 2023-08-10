@@ -1,14 +1,22 @@
-import random
+import json
 import csv
 
-from tools import generatePhoneNumber, generateBirthdate
-
-gender = "male" if random.random() > 0.5 else "female"
+from tools import phoneNumberGenerator, birthdateGenerator, genderGenerator
 
 def main():
-    print(gender)
-    generatePhoneNumber()
-    generateBirthdate()
+    with open("config.json", "r") as config_file:
+        data = json.load(config_file)
+        templatesPath = data["templatesPath"]
+        country = data["defaultCountry"]
+
+    with open(f"{templatesPath}/{country}/setup.json", "r") as config_file:
+        data = json.load(config_file)
+        countryCode = data["countryCode"]
+        defNumber = data['defNumber']
+
+    genderGenerator()
+    phoneNumberGenerator(countryCode,defNumber)
+    birthdateGenerator()
 
 if __name__ == '__main__':
     main()

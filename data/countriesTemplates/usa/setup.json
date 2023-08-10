@@ -1,0 +1,26 @@
+{
+    "countryName":"United States of America",
+    "countryCode":"1",
+    "defNumber":{
+        "template":"NXX-NXX-XXXX",
+        "symbols":{
+            "N":{
+                "min":2,
+                "max":9
+            },
+            "X":{
+                "min":0,
+                "max":9
+            }
+        }
+    },
+    "documentID":{
+        "template":"CXXXXXXXX",
+        "symbols":{
+            "X":{
+                "min":0,
+                "max":9
+            }
+        }
+    }
+}
