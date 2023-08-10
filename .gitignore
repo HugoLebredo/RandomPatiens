@@ -1,0 +1,6 @@
+bin
+include
+lib
+historialDental.csv
+pyvenv.cfg
+src/__pycache__
