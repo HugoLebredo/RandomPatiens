@@ -1,7 +1,17 @@
 {
     "countryName":"España",
+    "files":{
+        "male":"MaleNames_Es.csv",
+        "female":"FemaleNames_Es.csv",
+        "surnames":"Surnames_Es.csv",
+        "streets":"StreetNames_es.csv"
+    },
     "countryCode":"34",
-    "defNumber":{
+    "surnamesNum":{
+        "min":2,
+        "max":2
+    },
+    "phoneNumber":{
         "template":"NXX-XX-XX-XX",
         "symbols":{
             "N":{
@@ -25,8 +35,8 @@
                 "max":9
             },
             "C":{
-                "isDigit":false
-
+                "isDigit":false,
+                "characters":["C"]
             }
         }
     }

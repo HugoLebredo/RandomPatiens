@@ -1,23 +1,47 @@
-from datetime import datetime
 import random
+from datetime import datetime
 
-def phoneNumberGenerator(countryCode, defNumber):
+from services import generateDigit, listFromCsv
+
+def numberGenerator( defNumber, countryCode = False):
 
     template = defNumber["template"]
     symbols = defNumber["symbols"]
 
-    result = "+%s "%(countryCode)
+    res = ""
+
+    if countryCode:
+        res = "+%s "%(countryCode)
 
     for d in template:
-        res = d if not d in symbols else generateDigit(symbols[d]["min"],symbols[d]["max"])
-        result += res
 
-    print(result)
+        if not d in symbols:
+            res += d
+        else:
+            if symbols[d]["isDigit"]:
+                res += str(generateDigit(min = symbols[d]["min"],max = symbols[d]["max"]))
+            else:
+                long = len(symbols[d]["characters"]) - 1
+                res += symbols[d]["characters"][generateDigit(max = long)]
 
-def generateDigit(min=0,max=9):
-    res = random.randint(min,max)
-    return str(res)
+    return res
 
+def nameGenerator(file):
+    namesList = listFromCsv(file)
+    long = len(namesList) - 1
+    return (namesList[generateDigit(max = long)])
+
+def surnameGenerator(file,num):
+    res = ""
+    numSurnames = generateDigit(num["min"], num["max"])
+    surnamesList = listFromCsv(file)
+    long = len(surnamesList) - 1
+    
+    for i in range(numSurnames):
+        st = surnamesList[generateDigit(max = long)]
+        res = res + st + " "
+
+    return res.rstrip()
 
 def birthdateGenerator():
     inicio = datetime(2017, 1, 30)
