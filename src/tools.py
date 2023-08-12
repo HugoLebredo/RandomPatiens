@@ -1,7 +1,7 @@
 import random
-from datetime import datetime
+from datetime import date
 
-from services import generateDigit, listFromCsv
+from utils import generateDigit, getRandomValue, listsFromCsv, getRandomRecordFromCsv
 
 def numberGenerator( defNumber, countryCode = False):
 
@@ -26,15 +26,14 @@ def numberGenerator( defNumber, countryCode = False):
 
     return res
 
-def nameGenerator(file):
-    namesList = listFromCsv(file)
-    long = len(namesList) - 1
-    return (namesList[generateDigit(max = long)])
+def nameGenerator(maleNames, femaleNames, gender):
+    
+    return getRandomValue(maleNames) if gender == "male" else getRandomValue(femaleNames)
 
-def surnameGenerator(file,num):
+
+def surnameGenerator(surnamesList,num):
     res = ""
     numSurnames = generateDigit(num["min"], num["max"])
-    surnamesList = listFromCsv(file)
     long = len(surnamesList) - 1
     
     for i in range(numSurnames):
@@ -43,11 +42,22 @@ def surnameGenerator(file,num):
 
     return res.rstrip()
 
-def birthdateGenerator():
-    inicio = datetime(2017, 1, 30)
-    final =  datetime(2017, 5, 28)
+def birthdateGenerator(initYear = 1940,lastYear = 2015):
+    init = date(initYear, 1, 1)
+    final =  date(lastYear, 12, 31)
 
-    random_date = inicio + (final - inicio) * random.random()
+    random_date = init + (final - init) * random.random()
+    
+    return random_date.isoformat()
+
 
 def genderGenerator():
     return "male" if random.random() > 0.5 else "female"
+
+def addressGenerator(streetList, location):
+    street = getRandomValue(streetList)
+
+def locationGenerator(df):
+    locationDict = getRandomRecordFromCsv(df)
+    return locationDict.values()
+

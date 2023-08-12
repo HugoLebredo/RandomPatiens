@@ -1,10 +1,9 @@
 {
     "countryName":"España",
     "files":{
-        "male":"MaleNames_Es.csv",
-        "female":"FemaleNames_Es.csv",
-        "surnames":"Surnames_Es.csv",
-        "streets":"StreetNames_es.csv"
+        "names":"names.csv",
+        "streets":"streetNames.csv",
+        "locations":"locations.csv"
     },
     "countryCode":"34",
     "surnamesNum":{

@@ -1,4 +1,9 @@
 {
     "defaultCountry":"spain",
-    "templatesPath":"data/countriesTemplates"
+    "templatesPath":"data/countriesTemplates",
+    "colnames":{
+        "names":["maleNames","femaleNames","surnames"],
+        "streets":["streets"],
+        "locations":["region","town","postalCode"]
+    }
 }
