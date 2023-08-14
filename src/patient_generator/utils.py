@@ -27,3 +27,6 @@ def listsFromCsv(file, colnames):
 def getRandomRecordFromCsv(df):
     dict = df.sample().to_dict(orient='records')[0]
     return dict
+
+def loadDataframe(path,file, colnames):
+    return read_csv(f"{path}/{file}", sep=";", encoding="utf-8-sig", skiprows=[0,], names = colnames["locations"])
