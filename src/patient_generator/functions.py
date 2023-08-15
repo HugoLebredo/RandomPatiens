@@ -95,7 +95,7 @@ def patientGenerator(data,locationsDf,surnamesNum,phoneNumTemplate,idTemplate,co
     patient.update({"phone":numberGenerator(phoneNumTemplate, countryCode = countryCode)})
     patient.update({"idNumber":numberGenerator(idTemplate)})
     patient.update({"birthday":birthdateGenerator()})
-    patient.update({"birthday":addressGenerator(locationsDf, data["streets"])})
+    patient.update({"address":addressGenerator(locationsDf, data["streets"])})
     print(patient)
     return patient
 

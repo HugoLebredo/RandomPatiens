@@ -3,4 +3,6 @@ include
 lib
 historialDental.csv
 pyvenv.cfg
+src/patient_generator/__pycache__
+src/patient_generator/pytest_cache
 src/__pycache__
